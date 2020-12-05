@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
+
   end
 
   def index
@@ -29,6 +30,19 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
+
+  def followings
+    @title = "Followings"
+    @user = User.find(params[:id])
+    @users = @user.followings
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers
+  end
+
 
   private
   def user_params
